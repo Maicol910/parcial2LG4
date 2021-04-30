@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html' %} {% block titulo %} inicio {% endblock %} {% block contenido%}
+<p style="color: #ffffff;">Integrantes: Maicol Jossa - Henry Rosero</p>
+<center>
+    <h1>PARCIAL #2</h1>
+    <a class="button3 link" href="{{ url_for('estudiante') }}">Registrar Estudiantes</a>
+    <a class="button3 link" href="{{ url_for('sesiones') }}">Administrar Sesiones</a>
+    <a class="button3 link" href="{{ url_for('asiganar_mat') }}">Asignar Materia</a>
+    <a class="button3 link" href="{{ url_for('asistencia') }}">Asistencia</a>
+</center>
+<form action="{{ url_for('materia') }}" method="POST" class="formulario">
+    <h1 class="h1">REGISTRAR MATERIA</h1>
+    <div class="contenedor">
+        <center>
+            <div class="input-contenedor">
+                <i class="fas fa-book-reader icon"></i>
+                <input type="text" id="nombre" name="nombre" placeholder="NOMBRE DE LA MATERIA">
+            </div>
+            <div>
+                <select name="semestre" id="semestre" class="select-css">
+                        <option value="">SEMESTRE</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                </select>
+            </div>
+
+            <div>
+                <button class="button2 link2" type="submit">Guardar</button>
+                <a class="button2 link2" href="{{url_for('datos') }}">Ver Materias</a>
+            </div>
+        </center>
+    </div>
+</form>
+{% endblock %}

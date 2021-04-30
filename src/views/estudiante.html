@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %} {% block titulo %} Administrar {% endblock %} {%block contenido %}
+<form action="{{ url_for('estudiante') }}" method="POST" class="formulario">
+    <h1 class="h1">REGISTRAR ESTUDIANTES</h1>
+    <div class="contenedor">
+        <center>
+            <div class="input-contenedor">
+                <i class="fas fa-address-card icon"></i>
+                <input type="text" class="form-control" id="identificacion" name="identificacion" placeholder="IDENTIFICACION">
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-signature icon"></i>
+                <input type="text" class="form-control" id="nombres" name="nombres" placeholder="NOMBRE">
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-signature icon"></i>
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="APELLIDO">
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-mobile-alt icon"></i>
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="CELULAR">
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" class="form-control" id="correo" name="correo" placeholder="CORREO ELECTRONICO">
+            </div>
+
+            <select name="semestre" id="semestre" class="select-css">
+                <option value="">SEMESTRE AL QUE PERTENECE</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button class="button2 link2" type="submit">Guardar</button>
+            <a class="button2 link2" href="{{ url_for('verEstudiantes') }}">Ver Estudiantes</a>
+            <a class="button2 link2" href="{{ url_for('materia') }}">Volver</a>
+        </center>
+    </div>
+</form>
+{% endblock %}

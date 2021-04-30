@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %} {% block titulo %} Administrar {% endblock %} {%block contenido %}
+<form action="{{ url_for('sesiones') }}" method="POST" class="formulario">
+    <h1 class="h1">ADMINISTRAR SESIONES</h1>
+    <div class="contenedor">
+        <center>
+            <div class="input-contenedor">
+                <label for="materia_id">Materia:</label>
+            </div>
+            <div>
+                <select class="container" name="materia_id" class="select-css">
+                    {%for dato in datos %}
+                        <option value="{{dato[0]}}">{{dato[1]}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <br>
+            <div class="input-contenedor">
+                <label for="fecha">Fecha Clase:</label>
+            </div>
+            <input type="date" id="fecha" name="fecha" value="2021-07-22" min="2021-01-01" max="2050-12-31">
+
+
+            <div class="input-contenedor">
+                <label for="hora_inicio">Hora Inicio:</label>
+            </div>
+            <input type="time" name="hora_inicio" />
+
+
+            <div class="input-contenedor">
+                <label for="hora_final">Hora Final:</label>
+            </div>
+            <input type="time" name="hora_final" />
+        </center>
+    </div>
+    <center>
+        <div>
+            <button class="button2 link2" type="submit">Guardar</button>
+            <a class="button2 link2" href="{{ url_for('materia') }}">Volver</a>
+        </div>
+    </center>
+</form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %} {% block titulo %} Administrar {% endblock %} {%block contenido %}
+<h1>ASISTENCIA</h1>
+<table class="table2">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de Sesion</th>
+            <th>Hora Inicio</th>
+            <th>Hora Final</th>
+            <th>Materia</th>
+            <th>Asistencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for asist in asis %}
+        <tr>
+            <td>{{ asist[0] }} </td>
+            <td>{{ asist[1] }} </td>
+            <td>{{ asist[2] }}am </td>
+            <td>{{ asist[3] }}pm</td>
+            <td>{{ asist[4] }} </td>
+            <td>{{ asist[5] }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<center>
+    <a class="button3 link" href="{{ url_for('asistencia') }}">Volver</a>
+</center>
+{% endblock %}

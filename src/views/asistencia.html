@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %} {% block titulo %} Administrar {% endblock %} {%block contenido %}
+<form action="{{ url_for('asistencia') }}" method="POST" class="formulario">
+    <h1 class="h1">ASISTENCIA</h1>
+    <div class="contenedor">
+        <center>
+            <div class="input-contenedor">
+                <label for="materia_id">Sesion:</label>
+            </div>
+            <div>
+                <select class="container" name="sesion_id" class="select-css">
+                    {%for sesion in sesi %}
+                        <option value="{{sesion[0]}}">{{sesion[2]}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <br>
+            <div class="input-contenedor">
+                <label for="materia_id">Estudiante:</label>
+            </div>
+            <div>
+                <select class="container" name="estudiante_id" class="select-css">
+                    {%for estud in estu %}
+                        <option value="{{estud[0]}}">{{estud[2]}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <br>
+            <div class="input-contenedor">
+                <i class="fas fa-user-tie icon"></i>
+                <input type="text" class="form-control" id="asistencia" name="asistencia" placeholder="ASISTENCIA">
+            </div>
+        </center>
+    </div>
+    <center>
+        <div>
+            <button class="button2 link2" type="submit">Guardar</button>
+            <a class="button2 link2" href="{{url_for('Verasistencia2') }}">Ver Asistencia</a>
+            <a class="button2 link2" href="{{ url_for('materia') }}">Volver</a>
+        </div>
+    </center>
+</form>
+{% endblock %}

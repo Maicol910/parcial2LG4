@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %} {% block titulo %} Administrar {% endblock %} {%block contenido %}
+<form action="{{ url_for('asiganar_mat') }}" method="POST" class="formulario">
+    <h1 class="h1">ASIGNAR MATERIA</h1>
+    <div class="contenedor">
+        <center>
+            <div class="input-contenedor">
+                <label for="materia_id">Materia:</label>
+            </div>
+            <div>
+                <select class="container" name="materia_id" class="select-css">
+                    {%for dato in datos %}
+                        <option value="{{dato[0]}}">{{dato[1]}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <br>
+            <div class="input-contenedor">
+                <label for="materia_id">Estudiante:</label>
+            </div>
+            <div>
+                <select class="container" name="estudiante_id" class="select-css">
+                    {%for estud in estu %}
+                        <option value="{{estud[0]}}">{{estud[2]}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+        </center>
+    </div>
+    <center>
+        <div>
+            <button class="button2 link2" type="submit">Guardar</button>
+            <a class="button2 link2" href="{{ url_for('materia') }}">Volver</a>
+        </div>
+    </center>
+</form>
+
+{% endblock %}
